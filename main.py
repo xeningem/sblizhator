@@ -17,7 +17,9 @@ async def start(update: Update, context: CallbackContext) -> None:
 async def question(update: Update, context: CallbackContext) -> None:
     # Choose a random question from the list
     random_question = random.choice(processed_questions)
-    print(random_question)
+    user = update.effective_user
+    user_info = f"{user.id} {user.name}"
+    print(user_info, random_question)
     await update.message.reply_text(random_question)
 
 
